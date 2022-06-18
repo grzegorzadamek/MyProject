@@ -1,0 +1,6 @@
+[
+  {"name" : "intro", "begin": "<div class=\"todayItems\">", "end":  "<div class=\"mwbHeadingIcon and treasures--rev2021\">"},
+  {"name" : "treasure", "begin": "<div class=\"mwbHeadingIcon and treasures--rev2021\">", "end":  "<div class=\"mwbHeadingIcon and ministry--rev2021\">"},
+  {"name" : "ministry", "begin": "<div class=\"mwbHeadingIcon and ministry--rev2021\">", "end":  "<div class=\"mwbHeadingIcon and christianLiving--rev2021\">"},
+  {"name" : "life", "begin": "<div class=\"mwbHeadingIcon and christianLiving--rev2021\">", "end":  "<div class=\"linkCard\">"}
+]
