@@ -1,0 +1,11 @@
+<div *ngIf="tasks.length > 0; else noData">
+  <div *ngFor="let task of tasks">
+    <div class="header" [ngClass]="task.name">
+      <h2>{{ task.label }}</h2>
+      <div *ngFor="let part of task.parts" class="parts">
+        <li class="part">{{part}}<input type="text" (change)="onChangeValue($event)"></li>
+      </div>
+    </div>
+  </div>
+</div>
+<ng-template #noData>no data</ng-template>
