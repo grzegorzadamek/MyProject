@@ -1,6 +1,6 @@
 <h2>Enter URL</h2>
 <input type="text" value="" [(ngModel)]="url" />
 <button (click)="getUrl(url)" formtarget="_blank">Get</button>
-<div class="schedule">
+<div class="schedule" id="contentToConvert">
   <app-schedule [tasks]="tasks"></app-schedule>
 </div>

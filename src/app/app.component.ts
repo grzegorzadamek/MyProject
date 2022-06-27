@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { AppService } from '../services/app.service';
 import { take } from 'rxjs/operators';
-import * as parts from '../datas/parts.json'
+import * as parts from '../datas/parts.json';
 
 @Component({
   selector: 'app-root',
