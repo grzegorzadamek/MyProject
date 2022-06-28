@@ -1,5 +1,6 @@
 [
-  {"name" : "intro", "begin": "<div class=\"todayItems\">", "end":  "<div class=\"mwbHeadingIcon and treasures--rev2021\">"},
+  {"name" : "date", "begin": "<h1 id=\"p1\" data-pid=\"1\">", "end": "</strong></h1>"},
+  {"name" : "intro", "begin": "<h2 id=\"p2\" data-pid=\"2\">", "end":  "<div class=\"mwbHeadingIcon and treasures--rev2021\">"},
   {"name" : "treasure", "begin": "<div class=\"mwbHeadingIcon and treasures--rev2021\">", "end":  "<div class=\"mwbHeadingIcon and ministry--rev2021\">"},
   {"name" : "ministry", "begin": "<div class=\"mwbHeadingIcon and ministry--rev2021\">", "end":  "<div class=\"mwbHeadingIcon and christianLiving--rev2021\">"},
   {"name" : "life", "begin": "<div class=\"mwbHeadingIcon and christianLiving--rev2021\">", "end":  "<div class=\"linkCard\">"}

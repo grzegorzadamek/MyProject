@@ -31,7 +31,7 @@ export class AppComponent {
           let section = this.page.split(part.begin).pop().split(part.end)[0]; // get sections of meeting
           this.partInArray = [];
 
-          let sectionLabel = section.split('<h2').pop().split('</strong></h2>')[0];
+          let sectionLabel = section.split('<h').pop().split('</strong></h')[0];
           this.blackList.map((item: string) => {
               sectionLabel = sectionLabel.replace(item, '');
           });
@@ -39,7 +39,7 @@ export class AppComponent {
 
           const regex = /class="so"><strong>\s*(.*?)\s*<\/p>/g;
           let matchResult = section.match(regex);
-          matchResult.map((item: any) => {
+          matchResult?.map((item: any) => {
             let part3 = item.split('class="so"><strong>').pop().split('</strong> ')[0]; // get parts of each section
             this.partOK = part3.split('„</strong><strong>').pop().split('</strong><strong>”')[0];
             this.blackList.map((item: string) => {
