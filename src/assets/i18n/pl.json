@@ -1,0 +1,10 @@
+{
+  "label": {
+    "enterURL": "Enter URL",
+    "noData": "No data"
+  },
+  "button": {
+    "getData": "Get data",
+    "exportToPDF": "Export to PDF"
+  }
+}

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { AppService } from '../services/app.service';
 import { take } from 'rxjs/operators';
 import * as parts from '../datas/parts.json';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-root',
@@ -19,7 +20,10 @@ export class AppComponent {
   public sectionLabelOK: string = '';
   public tasks : {name: string, label: string, parts: string[]}[] = [];
 
-  constructor(private service: AppService) {}
+  constructor(private service: AppService, private translateService: TranslateService) {
+     translateService.setDefaultLang('pl');
+     translateService.use('pl');
+  }
 
   public getUrl(value: string): void {
     this.tasks = [];

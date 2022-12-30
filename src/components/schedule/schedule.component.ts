@@ -34,7 +34,6 @@ export class ScheduleComponent implements OnInit {
                     }]
                 };
                 pdfMake.createPdf(docDefinition).download("meeting.pdf");
-
         });
 
   }

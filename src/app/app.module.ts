@@ -5,9 +5,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSliderModule } from '@angular/material/slider';
-import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-import { ComponentsModule } from 'src/components/components.module'
+import { ComponentsModule } from 'src/components/components.module';
+import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import {HttpClient, HttpClientModule} from '@angular/common/http';
+
+export function createTranslateLoader(http: HttpClient) {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
 
 @NgModule({
   declarations: [
@@ -20,8 +26,17 @@ import { ComponentsModule } from 'src/components/components.module'
     MatSliderModule,
     HttpClientModule,
     FormsModule,
-    ComponentsModule
+    ComponentsModule,
+    TranslateModule.forRoot({
+      defaultLanguage: 'pl',
+      loader: {
+         provide: TranslateLoader,
+         useFactory: createTranslateLoader,
+         deps: [HttpClient]
+      }
+    })
   ],
+  exports: [TranslateModule],
   providers: [],
   bootstrap: [AppComponent]
 })

@@ -32,11 +32,15 @@
 }
 
 .parts {
-  li {
+  .part {
     list-style-type: none;
     margin: 5px 0 5px 0;
     display: flex;
     justify-content: space-between;
+
+    &-title {
+      width: 250px
+    }
 
     .filled {
       border:0;

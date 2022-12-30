@@ -2,12 +2,16 @@
 
   <div *ngFor="let task of tasks">
     <div class="header" [ngClass]="task.name">
-      <h2>{{ task.label }}</h2>
+      <h2>{{ task.label | translate}}</h2>
       <div *ngFor="let part of task.parts" class="parts">
-        <li class="part">{{part}}<input type="text" (change)="onChangeValue($event)"/></li>
+        <li class="part">
+<!--          <input class="part-title filled" type="text" value='{{part}}'/>-->
+          {{part}}
+          <input type="text" (change)="onChangeValue($event)"/>
+        </li>
       </div>
     </div>
   </div>
 </div>
-<div> <button  (click)="downloadAsPDF()">Export To PDF</button></div>
-<ng-template #noData>no data</ng-template>
+<div> <button  (click)="downloadAsPDF()">{{ 'button.exportToPDF' | translate }}</button></div>
+<ng-template #noData>{{ 'label.noData' | translate }}</ng-template>
