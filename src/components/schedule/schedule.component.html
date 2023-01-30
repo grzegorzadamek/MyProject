@@ -5,9 +5,9 @@
       <h2>{{ task.label | translate}}</h2>
       <div *ngFor="let part of task.parts" class="parts">
         <li class="part">
-<!--          <input class="part-title filled" type="text" value='{{part}}'/>-->
-          {{part}}
-          <input type="text" (change)="onChangeValue($event)"/>
+          <input class="part-title filled" type="text" value='{{part}}'/>
+<!--          {{part}}-->
+          <input type="text" class="part-value"(change)="onChangeValue($event)"/>
         </li>
       </div>
     </div>

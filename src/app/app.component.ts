@@ -27,7 +27,8 @@ export class AppComponent {
 
   public getUrl(value: string): void {
     this.tasks = [];
-    this.service.getMeeting(value).pipe(take(1)).subscribe(result => {
+//     this.service.getMeeting(value).pipe(take(1)).subscribe(result => {
+    this.service.getMeetingByPost(value).pipe(take(1)).subscribe(result => {
       this.page = this.replaceText(result, /<a\b[^>]*>/gm, /<\/a>/gm, ''); // remove 'a' links
 
       this.partList.map(part =>
@@ -55,7 +56,6 @@ export class AppComponent {
         }
       );
     });
-    console.log('this.tasks :: ', this.tasks);
   }
 
   public replaceText(text: string, begin: any, end: any, replace: string): string {

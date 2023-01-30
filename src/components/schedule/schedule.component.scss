@@ -39,7 +39,12 @@
     justify-content: space-between;
 
     &-title {
-      width: 250px
+      width: 500px;
+      font-size: 18px;
+    }
+
+    &-value {
+      font-size: 18px;
     }
 
     .filled {
