@@ -1,6 +1,10 @@
-<h2>{{ 'label.enterURL' | translate }}</h2>
-<input type="text" value="" [(ngModel)]="url" />
-<button (click)="getUrl(url)" formtarget="_blank">{{ 'button.getData' | translate }}</button>
+<div class="wrapper">
+  <div class="form__group field">
+    <input type="input" class="form__field" (keyup.enter)="getUrl(url)" placeholder="Name" name="name" id='name' value="" [(ngModel)]="url" required />
+    <label for="name" class="form__label">{{ 'label.enterURL' | translate }}</label>
+  </div>
+  <button class="button" (click)="getUrl(url)" formtarget="_blank">{{ 'button.getData' | translate }}</button>
+</div>
 <div class="schedule" id="contentToConvert">
   <app-schedule [tasks]="tasks"></app-schedule>
 </div>

@@ -1,0 +1,14 @@
+runtime: nodejs16
+
+instance_class: F2
+
+env_variables:
+  BUCKET_NAME: "radiant-anchor-352218.appspot.com"
+
+handlers:
+- url: /
+  static_files: dist/MyProject/index.html
+  upload: dist/MyProject/index.html
+
+- url: /
+  static_dir: dist/MyProject
