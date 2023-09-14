@@ -11,7 +11,7 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class AppComponent {
   title = 'MySchedule';
-  url: string = '';
+  public url: string = '';
   public page: any = '';
   public partList: {name: string, begin: string, end: string}[] = (parts as any).default;
   public blackList = ['</strong></p>', '</strong><strong>', '</strong> <strong>', '“', '„', '<em>', '</em>', '<strong>'];
@@ -20,16 +20,15 @@ export class AppComponent {
   public sectionLabelOK: string = '';
   public tasks : {name: string, label: string, parts: string[]}[] = [];
 
-  constructor(private service: AppService, private translateService: TranslateService) {
-     translateService.setDefaultLang('pl');
-     translateService.use('pl');
+  constructor(private _service: AppService, private _translateService: TranslateService) {
+     _translateService.setDefaultLang('pl');
+     _translateService.use('pl');
   }
 
   public getUrl(value: string): void {
     this.tasks = [];
-//     this.service.getMeeting(value).pipe(take(1)).subscribe(result => {
-    this.service.getMeetingByPost(value).pipe(take(1)).subscribe(result => {
-      this.page = this.replaceText(result, /<a\b[^>]*>/gm, /<\/a>/gm, ''); // remove 'a' links
+    this._service.getMeetingByPost(value).pipe(take(1)).subscribe(result => {
+      this.page = this._replaceText(result, /<a\b[^>]*>/gm, /<\/a>/gm, ''); // remove 'a' links
 
       this.partList.map(part =>
         {
@@ -58,7 +57,7 @@ export class AppComponent {
     });
   }
 
-  public replaceText(text: string, begin: any, end: any, replace: string): string {
+  private _replaceText(text: string, begin: any, end: any, replace: string): string {
     return text.replace(begin, replace).replace(end, replace);
   };
 }
