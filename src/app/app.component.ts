@@ -18,7 +18,8 @@ export class AppComponent {
   public partOK: any;
   public partInArray: string[] = [];
   public sectionLabelOK: string = '';
-  public tasks : {name: string, label: string, parts: string[]}[] = [];
+  public tasks: {name: string, label: string, parts: string[]}[] = [];
+  public isLoading: boolean;
 
   constructor(private _service: AppService, private _translateService: TranslateService) {
      _translateService.setDefaultLang('pl');
@@ -26,8 +27,10 @@ export class AppComponent {
   }
 
   public getUrl(value: string): void {
+    this.isLoading = true;
     this.tasks = [];
     this._service.getMeetingByPost(value).pipe(take(1)).subscribe(result => {
+      this.isLoading = false;
       this.page = this._replaceText(result, /<a\b[^>]*>/gm, /<\/a>/gm, ''); // remove 'a' links
 
       this.partList.map(part =>

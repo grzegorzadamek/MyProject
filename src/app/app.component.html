@@ -4,7 +4,11 @@
     <label for="name" class="form__label">{{ 'label.enterURL' | translate }}</label>
   </div>
   <button class="button" (click)="getUrl(url)" formtarget="_blank">{{ 'button.getData' | translate }}</button>
+  <div *ngIf="isLoading" class="center-screen">
+    <img src="assets/pictures/spinner.gif">
+  </div>
 </div>
 <div class="schedule" id="contentToConvert">
   <app-schedule [tasks]="tasks"></app-schedule>
 </div>
+
