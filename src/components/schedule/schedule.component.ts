@@ -13,6 +13,7 @@ export class ScheduleComponent implements OnInit {
   public myModel: string = '';
 
   @Input() tasks: {name: string, label: string, parts: string[]}[] = [];
+  @Input() isLoading: boolean;
 
   @ViewChild('pdfTable', {static: false}) pdfTable: ElementRef;
 
