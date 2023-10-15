@@ -20,4 +20,8 @@ export class AppService {
 //      return this.http.post<any>('http://localhost:3000/data', {data}
      );
   }
+
+  public getBlackList(): Observable<any> {
+  return this._http.get('/src/services/blackList.json', {responseType: 'text'});
+  }
 }
