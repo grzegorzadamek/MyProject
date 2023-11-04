@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { AppService } from '../services/app.service';
-import { take } from 'rxjs/operators';
+import { take, Subject } from 'rxjs';
 import * as parts from '../datas/parts.json';
 import * as blackList from '../datas/blackList.json';
 import { TranslateService } from '@ngx-translate/core';
@@ -20,6 +20,8 @@ export class AppComponent  {
   public sectionLabelOK: string = '';
   public tasks: {name: string, label: string, parts: string[]}[] = [];
   public isLoading: boolean;
+  public isLoadingError: boolean = false;
+  public getPDF: Subject<void> = new Subject<void>();
   private _blackList: any = (blackList as any).default;
 
   constructor(private _service: AppService, private _translateService: TranslateService) {
@@ -29,6 +31,7 @@ export class AppComponent  {
 
   public getUrl(value: string): void {
     this.isLoading = true;
+    this.isLoadingError = false;
     this.tasks = [];
     this._service.getMeetingByPost(value).pipe(take(1)).subscribe(result => {
       this.isLoading = false;
@@ -59,7 +62,16 @@ export class AppComponent  {
           this.tasks.push({'name': part.name, 'label': this.sectionLabelOK, 'parts': this.partInArray});
         }
       );
+    },
+    error => {
+      this.isLoading = false;
+      this.isLoadingError = true;
+      console.log('oops', error);
     });
+  }
+
+  public downloadAsPDF(): void {
+  this.getPDF.next();
   }
 
   private _replaceText(text: string, begin: any, end: any, replace: string): string {
