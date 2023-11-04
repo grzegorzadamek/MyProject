@@ -5,7 +5,7 @@
   </div>
   <button class="button" (click)="getUrl(url)" [disabled]="!url.length"  formtarget="_blank">{{ 'button.getData' | translate }}</button>
   <button class="button" (click)="downloadAsPDF()" [disabled]="tasks.length <= 0"  formtarget="_blank">{{ 'button.exportToPDF' | translate }}</button>
-  <div *ngIf="isLoadingError">
+  <div *ngIf="isLoadingError" class="center-screen">
     <p>{{'text.loadingError' | translate }}</p>
   </div>
   <div *ngIf="isLoading" class="center-screen">

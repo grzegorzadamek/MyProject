@@ -8,6 +8,6 @@
     "exportToPDF": "Export to PDF"
   },
   "text": {
-    "loadingError": "Sorry, error while loading"
+    "loadingError": "Sorry, error while data loading..."
   }
 }
