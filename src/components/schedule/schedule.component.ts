@@ -29,7 +29,7 @@ export class ScheduleComponent implements OnInit, OnDestroy {
   }
 
   public onChangeValue(event: any): void {
-    event.target.classList.add('filled');
+    event?.target?.classList?.add('filled');
   }
 
   public downloadAsPDF() {

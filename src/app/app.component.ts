@@ -13,16 +13,16 @@ import { TranslateService } from '@ngx-translate/core';
 export class AppComponent  {
   title = 'MySchedule';
   public url: string = '';
-  public page: any = '';
+  public page: string = '';
   public partList: {name: string, begin: string, end: string}[] = (parts as any).default;
-  public partOK: any;
+  public partOK: string;
   public partInArray: string[] = [];
   public sectionLabelOK: string = '';
   public tasks: {name: string, label: string, parts: string[]}[] = [];
   public isLoading: boolean;
   public isLoadingError: boolean = false;
   public getPDF: Subject<void> = new Subject<void>();
-  private _blackList: any = (blackList as any).default;
+  private _blackList: string[] = (blackList as any).default;
 
   constructor(private _service: AppService, private _translateService: TranslateService) {
      _translateService.setDefaultLang('pl');
@@ -39,21 +39,21 @@ export class AppComponent  {
 
       this.partList.map(part =>
         {
-          let section = this.page?.split(part.begin).pop().split(part.end)[0]; // get sections of meeting
+          let section: string = this.page?.split(part.begin).pop()?.split(part.end)[0] as string; // get sections of meeting
           this.partInArray = [];
 
-          let sectionLabel = section.split('<h').pop().split('</strong></h')[0];
+          let sectionLabel: string = section.split('<h').pop()?.split('</strong></h')[0] as string;
           this._blackList.map((item: string) => {
               sectionLabel = sectionLabel.replace(item, '');
           });
 
-          this.sectionLabelOK = sectionLabel.split(">").pop();
+          this.sectionLabelOK = sectionLabel.split(">").pop() as string;
 
           const regex = /class="so"><strong>\s*(.*?)\s*<\/p>/g;
           let matchResult = section.match(regex);
-          matchResult?.map((item: any) => {
-            let part3 = item.split('class="so"><strong>').pop().split('</strong> ')[0]; // get parts of each section
-            this.partOK = part3.split('„</strong><strong>').pop().split('</strong><strong>”')[0];
+          matchResult?.map((item: string | undefined) => {
+            let part3: string = item?.split('class="so"><strong>').pop()?.split('</strong> ')[0] as string; // get parts of each section
+            this.partOK = part3.split('„</strong><strong>').pop()?.split('</strong><strong>”')[0] as string;
             this._blackList.map((item: string) => {
                 this.partOK = this.partOK.replace(item, '');
             });
