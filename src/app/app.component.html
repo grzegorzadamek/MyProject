@@ -10,12 +10,12 @@
   <button class="button" (click)="downloadAsPDF()" [disabled]="tasks.length <= 0" formtarget="_blank">{{
     'button.exportToPDF' | translate }}
   </button>
-  <div *ngIf="isLoadingError" class="center-screen">
-    <p>{{'text.loadingError' | translate }}</p>
-  </div>
-  <div *ngIf="isLoading" class="center-screen">
-    <img src="assets/pictures/spinner.gif">
-  </div>
+</div>
+<div *ngIf="isLoadingError" class="center-screen">
+  <p>{{'text.loadingError' | translate }}</p>
+</div>
+<div *ngIf="isLoading" class="center-screen">
+  <img src="assets/pictures/spinner.gif">
 </div>
 <div class="schedule" id="contentToConvert">
   <app-schedule [tasks]="tasks" [isLoading]="isLoading" [downloadPDF]="getPDF.asObservable()"></app-schedule>
