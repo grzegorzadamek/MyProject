@@ -1,7 +1,7 @@
 [
-  {"name" : "date", "begin": "<h1 id=\"p1\" data-pid=\"1\">", "end": "</strong></h1>"},
-  {"name" : "intro", "begin": "<h2 id=\"p2\" data-pid=\"2\">", "end":  "<div class=\"mwbHeadingIcon and treasures--rev2021\">"},
-  {"name" : "treasure", "begin": "<div class=\"mwbHeadingIcon and treasures--rev2021\">", "end":  "<div class=\"mwbHeadingIcon and ministry--rev2021\">"},
-  {"name" : "ministry", "begin": "<div class=\"mwbHeadingIcon and ministry--rev2021\">", "end":  "<div class=\"mwbHeadingIcon and christianLiving--rev2021\">"},
-  {"name" : "life", "begin": "<div class=\"mwbHeadingIcon and christianLiving--rev2021\">", "end":  "<div class=\"linkCard\">"}
+  {"name" : "date", "begin": "<h1 class=\"du-fontSize--basePlus2 du-color--textSubdued\" id=\"p1\" data-pid=\"1\">", "end": "1>"},
+  {"name" : "intro", "begin": "<h2 class=\"du-fontSize--base du-margin-top--2 du-margin-top-desktopOnly--4\" id=\"p2\" data-pid=\"2\">", "end":  "</h3>"},
+  {"name" : "treasure", "begin": "<h2 class=\"du-fontSize--base du-color--teal-700", "end":  "<h2 class=\"du-fontSize--base du-color--gold-700"},
+  {"name" : "ministry", "begin": "<h2 class=\"du-fontSize--base du-color--gold-700", "end":  "<h2 class=\"du-fontSize--base du-color--maroon-600"},
+  {"name" : "life", "begin": "<h2 class=\"du-fontSize--base du-color--maroon-600", "end":  "<div class=\"itemCaption\">"}
 ]
