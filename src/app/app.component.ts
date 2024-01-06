@@ -56,8 +56,9 @@ export class AppComponent  {
                 this._sectionLabel = this._sectionLabel.replace(item, '');
             });
           }
-          this._sectionLabelOK = this._sectionLabel.split(">").pop() as string;
+          this._sectionLabelOK = this._sectionLabel.split("<")[0] as string;
 
+// Prepare sections' parts
           if (part.name === 'intro') {
             this._regex = /<strong>\s*(.*?)\s*<\/strong> <span/g;
           } else {
