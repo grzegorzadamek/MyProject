@@ -1,14 +1,17 @@
 <div *ngIf="tasks.length > 0" id="pdfTable">
   <div *ngFor="let task of tasks">
     <div class="header" [ngClass]="task.name">
-      <h2>{{ task.label | translate}}</h2>
+      <h2>{{ task.label | translate }}</h2>
       <div *ngFor="let part of task.parts" class="parts">
         <li class="part">
-          <input class="part-title filled" type="text" value='{{part}}'/>
-          <input type="text" class="part-value" (change)="onChangeValue($event)"/>
+          <input class="part-title filled" type="text" value="{{ part }}" />
+          <input
+            type="text"
+            class="part-value"
+            (change)="onChangeValue($event)"
+          />
         </li>
       </div>
     </div>
   </div>
 </div>
-

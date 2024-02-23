@@ -16,9 +16,7 @@ export function createTranslateLoader(http: HttpClient) {
 }
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -30,14 +28,14 @@ export function createTranslateLoader(http: HttpClient) {
     TranslateModule.forRoot({
       defaultLanguage: 'pl',
       loader: {
-         provide: TranslateLoader,
-         useFactory: createTranslateLoader,
-         deps: [HttpClient]
-      }
-    })
+        provide: TranslateLoader,
+        useFactory: createTranslateLoader,
+        deps: [HttpClient],
+      },
+    }),
   ],
   exports: [TranslateModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

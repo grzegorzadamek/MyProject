@@ -4,13 +4,8 @@ import { ScheduleComponent } from './schedule/schedule.component';
 import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
-  declarations: [
-    ScheduleComponent
-  ],
-  imports: [
-    CommonModule,
-    TranslateModule
-  ],
-   exports: [ CommonModule, ScheduleComponent ]
+  declarations: [ScheduleComponent],
+  imports: [CommonModule, TranslateModule],
+  exports: [CommonModule, ScheduleComponent],
 })
-export class ComponentsModule { }
+export class ComponentsModule {}
