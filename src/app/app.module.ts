@@ -10,13 +10,21 @@ import { ComponentsModule } from 'src/components/components.module';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { LoginComponent } from 'src/Pages/login/login.component';
+import { MyScheduleComponent } from 'src/Pages/my-schedule/my-schedule.component';
+import {
+  GoogleLoginProvider,
+  GoogleSigninButtonModule,
+  SocialAuthServiceConfig,
+  SocialLoginModule,
+} from '@abacritt/angularx-social-login';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, MyScheduleComponent, LoginComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -25,6 +33,8 @@ export function createTranslateLoader(http: HttpClient) {
     HttpClientModule,
     FormsModule,
     ComponentsModule,
+    SocialLoginModule,
+    GoogleSigninButtonModule,
     TranslateModule.forRoot({
       defaultLanguage: 'pl',
       loader: {
@@ -35,7 +45,25 @@ export function createTranslateLoader(http: HttpClient) {
     }),
   ],
   exports: [TranslateModule],
-  providers: [],
+    providers: [
+      {
+        provide: 'SocialAuthServiceConfig',
+        useValue: {
+          autoLogin: false,
+          providers: [
+            {
+              id: GoogleLoginProvider.PROVIDER_ID,
+              provider: new GoogleLoginProvider(
+                '110841263572-7ot5k4dgc5imcaqii797vov4s0q1pgfp.apps.googleusercontent.com',
+              ),
+            },
+          ],
+          onError: (err) => {
+            console.error(err);
+          },
+        } as SocialAuthServiceConfig,
+      },
+    ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

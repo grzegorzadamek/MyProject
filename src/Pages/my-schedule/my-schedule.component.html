@@ -1,0 +1,47 @@
+<div class="wrapper">
+  <div class="form__group field">
+    <input
+      type="search"
+      class="form__field"
+      (keyup.enter)="getUrl(url)"
+      placeholder="Name"
+      name="name"
+      id="name"
+      value=""
+      [(ngModel)]="url"
+      required
+    />
+    <label for="name" class="form__label">{{
+      'label.enterURL' | translate
+    }}</label>
+  </div>
+  <button
+    class="button"
+    (click)="getUrl(url)"
+    [disabled]="!url.length"
+    formtarget="_blank"
+  >
+    {{ 'button.getData' | translate }}
+  </button>
+  <button
+    class="button"
+    (click)="downloadAsPDF()"
+    [disabled]="tasks.length <= 0"
+    formtarget="_blank"
+  >
+    {{ 'button.exportToPDF' | translate }}
+  </button>
+</div>
+<div *ngIf="isLoadingError" class="center-screen">
+  <p>{{ 'text.loadingError' | translate }}</p>
+</div>
+<div *ngIf="isLoading" class="center-screen">
+  <img src="assets/pictures/spinner.gif" />
+</div>
+<div class="schedule" id="contentToConvert">
+  <app-schedule
+    [tasks]="tasks"
+    [isLoading]="isLoading"
+    [downloadPDF]="getPDF.asObservable()"
+  ></app-schedule>
+</div>
