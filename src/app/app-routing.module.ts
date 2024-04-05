@@ -8,7 +8,11 @@ import { AppComponent } from 'src/app/app.component';
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' }, //default route
   { path: 'login', component: LoginComponent },
-  { path: 'my-schedule', component: MyScheduleComponent, canActivate: [LoginGuard] },
+  {
+    path: 'my-schedule',
+    component: MyScheduleComponent,
+    canActivate: [LoginGuard],
+  },
   { path: '**', component: AppComponent },
 ];
 

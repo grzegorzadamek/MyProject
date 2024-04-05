@@ -45,25 +45,25 @@ export function createTranslateLoader(http: HttpClient) {
     }),
   ],
   exports: [TranslateModule],
-    providers: [
-      {
-        provide: 'SocialAuthServiceConfig',
-        useValue: {
-          autoLogin: false,
-          providers: [
-            {
-              id: GoogleLoginProvider.PROVIDER_ID,
-              provider: new GoogleLoginProvider(
-                '110841263572-7ot5k4dgc5imcaqii797vov4s0q1pgfp.apps.googleusercontent.com',
-              ),
-            },
-          ],
-          onError: (err) => {
-            console.error(err);
+  providers: [
+    {
+      provide: 'SocialAuthServiceConfig',
+      useValue: {
+        autoLogin: false,
+        providers: [
+          {
+            id: GoogleLoginProvider.PROVIDER_ID,
+            provider: new GoogleLoginProvider(
+              '110841263572-7ot5k4dgc5imcaqii797vov4s0q1pgfp.apps.googleusercontent.com',
+            ),
           },
-        } as SocialAuthServiceConfig,
-      },
-    ],
+        ],
+        onError: (err) => {
+          console.error(err);
+        },
+      } as SocialAuthServiceConfig,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
