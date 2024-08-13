@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { CanActivate } from '@angular/router';
+
 import { Observable, of, take, map, catchError } from 'rxjs';
 import { SocialAuthService, SocialUser } from '@abacritt/angularx-social-login';
 import { Router } from '@angular/router';
@@ -8,7 +8,7 @@ import * as logins from './../datas/logins.json';
 @Injectable({
   providedIn: 'root',
 })
-export class LoginGuard implements CanActivate {
+export class LoginGuard  {
   constructor(
     private _router: Router,
     private _authService: SocialAuthService,
